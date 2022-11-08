@@ -7,6 +7,7 @@ import Login from './components/Pages/Login';
 import Register from './components/Pages/Register';
 import Blog from './components/Pages/Blog';
 import AddServices from './components/Services/AddServices';
+import AddReview from './components/Reviews/AddReview';
 function App(props) {
       const {user} = useContext(RootContext)
 
@@ -22,6 +23,10 @@ function App(props) {
                 {
                   path:"/blog",
                   element:<Blog></Blog> 
+                },
+                {
+                  path:"/add-review",
+                  element:<AddReview></AddReview>
                 },
                 {
                   path:"/add-services",
