@@ -13,8 +13,11 @@ function Header(props) {
     }).catch(err=> toast.error(err.code))
 
   }
+  const handlePhoto = ()=>{
+    toast(" Hello , " +user.displayName)
+  }
   return ( 
-    <div> {console.log(user)}
+    <div> {console.log(" Hello , "+user)}
     
     <div className="navbar bg-base-100 px-10">
   <div className="navbar-start">
@@ -43,9 +46,13 @@ function Header(props) {
       
     </ul>
   </div>
-  <div className="navbar-end"> { user? user.displayName :""}
-  {
-    user? <button onClick={HandleLogOut} className="btn btn-error text-white">Log OUT</button> : 
+  <div className="navbar-end"> 
+  { user ? <> <img onMouseOver={handlePhoto} className='h-[50px] rounded-full cursor-pointer mr-5' src={user.photoURL} alt="" />
+  <span className=' mr-5'> {user.displayName}</span>
+  </>
+  : ""}
+
+  {  user? <button onClick={HandleLogOut} className="btn btn-error text-white">Log OUT</button> : 
     <Link to='/login' className="btn btn-success text-white">Log In</Link>
   }
     
