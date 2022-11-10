@@ -18,7 +18,7 @@ function Services(props) {
       
       { services? services.map(item => { 
         return(
-          <div key={item._id} className="card card-compact  bg-base-100 shadow-xl">
+          <div key={item._id} className=" col-span-3 md:col-span-2 lg:col-span-3 card card-compact  bg-base-100 shadow-xl">
           <figure><img className=' h-[250px]' src={item.photo} alt="Shoes" /></figure>
           <div className="card-body">
             <h2 className="card-title">{item.title}</h2>
