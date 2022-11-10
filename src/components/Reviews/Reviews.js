@@ -10,7 +10,7 @@ function Reviews(props) {
 
  useEffect(()=>{
   console.log( " new data get ")
- const   url = `http://localhost:5000/reviews?q=${prams.ID}`
+ const   url = `https://server-assignment-11.vercel.app/reviews?q=${prams.ID}`
  axios.get( url).then( res => { 
     setReview(res.data) 
     console.log( res.data)

@@ -8,7 +8,7 @@ function UserReview(props) {
   
 
   useEffect(()=>{ 
-   const  url = `http://localhost:5000/my-reviews?email=${user.email}`
+   const  url = `https://server-assignment-11.vercel.app/my-reviews?email=${user.email}`
    axios.get(url).then(res=>{ 
     setMyReviews(res.data)
     console.log(res)
@@ -38,7 +38,7 @@ function UserReview(props) {
         <td>{item.message}</td>
         <td> <button className='btn btn-info text-white px-6'> Edit </button> <button className='btn btn-error text-white'> Delete </button> </td>
       </tr>
-        )}) : " "
+        )}) : null
        }
       
      

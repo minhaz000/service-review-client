@@ -30,7 +30,7 @@ function AddReview(props) {
     const handleSubmit =(e)=>{
       e.preventDefault()
       console.log( " me is working ");
-       const url = `http://localhost:5000/review`
+       const url = `https://server-assignment-11.vercel.app/review`
        axios.post(url , {newReview}).then(res =>{
          console.log(res);
          toast.success(res.data.message);

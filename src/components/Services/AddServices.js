@@ -16,7 +16,7 @@ function AddServices(props) {
    }
    const handleSunmit= (e)=>{
     e.preventDefault();
-  const url =`http://localhost:5000/services`
+  const url =`https://server-assignment-11.vercel.app/services`
   if(newService.title!==""){
     axios.post(url,{newService}).then( res=>{
       toast.success('Successfully Service Created !!!')

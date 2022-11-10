@@ -6,7 +6,7 @@ function Services(props) {
   const location = useLocation()
   const [services,setServices] = useState([])
   useEffect(()=>{ 
-   const url=`http://localhost:5000/services?l=${props.l}`
+   const url=`https://server-assignment-11.vercel.app/services?l=${props.l}`
     axios.get( url).then( res=>{ 
      setServices(res.data)
     })
@@ -18,7 +18,7 @@ function Services(props) {
       
       { services? services.map(item => { 
         return(
-          <div key={item._id} className=" col-span-3 md:col-span-2 lg:col-span-3 card card-compact  bg-base-100 shadow-xl">
+          <div key={item._id} className=" col-span-3 md:col-span-2 lg:col-span-1 card card-compact  bg-base-100 shadow-xl">
           <figure><img className=' h-[250px]' src={item.photo} alt="Shoes" /></figure>
           <div className="card-body">
             <h2 className="card-title">{item.title}</h2>

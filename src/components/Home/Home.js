@@ -50,7 +50,7 @@ function Home(props) {
         </div>
         <div className="form-control">
         <span className="label-text">Message</span>
-        <textarea value='Message' name='message' rows="5" cols="33" className="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
+        <textarea onChange={()=>{ }} value='Message' name='message' rows="5" cols="33" className="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
       focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-green-500
     ">  </textarea>
           

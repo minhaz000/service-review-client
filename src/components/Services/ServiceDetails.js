@@ -16,7 +16,7 @@ function ServiceDetails(props) {
 
    
 
-   const url = `http://localhost:5000/services?q=${prams.ID}`
+   const url = `https://server-assignment-11.vercel.app/services?q=${prams.ID}`
     axios.get(url).then(res=>{ 
        SetService(res.data)
     })
