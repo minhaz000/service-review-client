@@ -28,9 +28,10 @@ function App(props) {
                   path:"/blog",
                   element:<Blog></Blog> 
                 },
-                {
-                  path:"/add-review",
-                  element:<AddReview></AddReview>
+                
+                 {
+                  path:"/add-review/:ID",
+                  element: <PrivateRoute>  <AddReview></AddReview></PrivateRoute>
                 },
                 {
                   path:"/services",

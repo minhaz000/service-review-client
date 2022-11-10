@@ -17,7 +17,7 @@ function Header(props) {
     toast(" Hello , " +user.displayName)
   }
   return ( 
-    <div> {console.log(" Hello , "+user)}
+    <div> {console.log(user)}
     
     <div className="navbar bg-base-100 px-10">
   <div className="navbar-start">
