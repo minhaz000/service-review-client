@@ -4,6 +4,7 @@ import {app} from '../firebase/firebase.config'
 const RootContext = createContext()
 function Context(props) {
  const [user,setUser]= useState() 
+ const [reLoad ,setReLoad] = useState(true)
  const [loading,setLoading]= useState(true) 
  const auth = getAuth(app) 
  const provider = new GoogleAuthProvider()
@@ -36,7 +37,7 @@ useEffect(()=>{
   return ()=>  unSubscribe()
 },[])
 
-  const  RootContextValue = { googleLogIn,LogOut,EmailLogIn,EmailSingnUp, user ,loading}
+  const  RootContextValue = { googleLogIn,LogOut,EmailLogIn,EmailSingnUp, user ,loading,reLoad,setReLoad}
   return (
   <RootContext.Provider value={RootContextValue}> 
     {props.children}

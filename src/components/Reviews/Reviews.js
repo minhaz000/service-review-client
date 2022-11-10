@@ -1,31 +1,58 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { RootContext } from '../../context/RootContext';
-
+import axios from 'axios'
+import {toast} from 'react-hot-toast'
+import { reload } from 'firebase/auth';
 function Reviews(props) {
-  const {user} = useContext(RootContext)
+  const {user,reLoad,setReLoad} = useContext(RootContext)
+  const [review,setReview]  = useState([])
   const [newReview, setNewReview] = useState({userName:"",email:"" ,photo:"",message:""})
-
+  console.log( reLoad )
 const HandeleOnChange= (event)=>{
+  event.preventDefault();
     const name = event.target.name
     const value = event.target.value
     setNewReview({...newReview, [name]:value ,photo:user.photoURL,email:user.email})
   }
-const handleSubmit =()=>{
- console.log( " me is working ")
-  }
-  return (<> { console.log( newReview)}
+const handleSubmit =(e)=>{
+ 
+ console.log( " me is working ");
+  const url = `http://localhost:5000/review`
+  axios.post(url , {newReview}).then(res =>{
+    console.log(res);
+    toast.success(res.data.message);
+    setReLoad(value=> !value)
+  }).catch(error => toast.error(error.code))
+  } 
+ useEffect(()=>{
+  console.log( " new data get ")
+ const   url = `http://localhost:5000/reviews`
+ axios.get( url).then( res => { 
+    setReview(res.data) 
 
+ }) 
+  },[reLoad])  
+  return (<> 
+            { console.log( review)}
 
     <div className=' px-10 mt-10 relative'>
           <label htmlFor="my-modal" className=' btn btn-info text-white absolute right-0 '> add reviwe</label>
           <div className="mt-16">
-                 
-                  <div className="card w-100 bg-red-100 shadow-xl ">
-                    <div className="card-body">
-                      
-                      <p>We are using cookies for no reason.</p>
-                    </div>
-                </div>
+                 {review? review.map( item=>  { 
+                  return( 
+                  
+              <div key={item._id} className="card w-100 bg-red-100 shadow-xl my-4"> 
+                  <div className="card-body grid grid-cols-3">
+                    <img className=' row-span-2  w-[50px] rounded-full' src={item.photo} alt="" />
+                  <p className=' self-center '>{item.userName}  </p>  
+                    <p className=' col-span-2 col-start-2'>{item.message}</p>
+                  </div>
+              </div>
+
+                  )}) : " "
+                  
+                 }
+                  
         </div>
         </div>
 

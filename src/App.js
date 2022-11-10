@@ -13,7 +13,7 @@ import AllServices from './components/Services/AllServices';
 import ServiceDetails from './components/Services/ServiceDetails';
 import PrivateRoute from './private/PrivateRoute';
 function App(props) {
-      const {user} = useContext(RootContext)
+   
 
   const router = createBrowserRouter([
             {

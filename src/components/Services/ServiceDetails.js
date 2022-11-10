@@ -4,6 +4,7 @@ import 'react-photo-view/dist/react-photo-view.css';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Reviews from '../Reviews/Reviews';
+import PrivateRoute from '../../private/PrivateRoute';
 
 
 function ServiceDetails(props) {
@@ -40,7 +41,7 @@ function ServiceDetails(props) {
          </div>
 {/* ======================= Review Section ========================== */}
        
-                           <Reviews></Reviews> 
+  <Reviews></Reviews> 
        
         </div>
       )
