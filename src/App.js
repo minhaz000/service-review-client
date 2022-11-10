@@ -1,6 +1,5 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import  { Toaster } from 'react-hot-toast';
-import { RootContext } from './context/RootContext';
 import { createBrowserRouter, RouterProvider} from "react-router-dom";
 import Layout from './layout/Layout'
 import Home from './components/Home/Home'
