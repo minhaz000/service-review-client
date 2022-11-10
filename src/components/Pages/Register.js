@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import {toast}from 'react-hot-toast'
 import { RootContext } from '../../context/RootContext';
+import  {Helmet}from 'react-helmet'
 
 function Register(props) {
   const [userInfo,setUserInfo] =  useState({email:"",password:"",photo:"",name:""})
@@ -29,7 +30,7 @@ function Register(props) {
     .catch(err=> toast.error(err.code))
 
   }
-  return (<> {console.log(userInfo)}
+  return (<> <Helmet> <title> Minhaz  || Register</title> </Helmet>
   <h1 className='text-center text-5xl my-2'> Sign Up </h1>
     <div className=' grid grid-cols-2 '>
       <div> <img src="/img/Fingerprint (1).gif" alt="" /></div>

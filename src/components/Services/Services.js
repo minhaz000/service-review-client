@@ -13,7 +13,7 @@ function Services(props) {
   },[])
   
 
-  return (<>  { console.log( services)}
+  return (<> 
     <div className=' grid grid-cols-3 gap-4 px-4 my-24'>
       
       { services? services.map(item => { 

@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Services from '../Services/Services';
-
+import {Helmet} from "react-helmet";
 function Home(props) {
   return (
-    <div className='' id='home'>
+    <div className='' id='home'> <Helmet> <title> Minhaz  || Home</title> </Helmet>
       <div className="  min-h-[80vh] px-10 bg-base-200 grid grid-cols-2">
   <div className=" self-center col-span-2 md:col-span-1">
     <img src="/img/Fashion photoshoot-bro.svg" alt='' className=" rounded-lg " /> </div>
@@ -25,7 +25,7 @@ function Home(props) {
    <Services l="3" > </Services>
 
 
-    <div className=' min-h-screen bg-base-200' id='about'> 
+    <div className=' min-h-screen bg-base-200 py-10' id='about'> 
       <h1 className=' text-5xl pt-10 text-center'> About Me </h1>
       <div className='aboutMe h-[150px] mx-10 mt-10'> 
       
@@ -34,11 +34,11 @@ function Home(props) {
 
     </div>
 {/* ================================================================== */}
-<div className="hero min-h-screen " id='contact'>
+<div className="hero min-h-screen mt-10 py-10" id='contact'>
   <div className="hero-content flex-col lg:flex-row-reverse">
     <div className="text-center lg:text-left">
       <h1 className="text-5xl font-bold">Contact Me </h1>
-      <p className="py-6">please fill the form and send me a message and i will reach you soon.</p>
+      <p className="py-6 ">please fill the form and send me a message and i will reach you soon.</p>
     </div>
     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
       <div className="card-body">

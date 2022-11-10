@@ -1,8 +1,8 @@
 import React from 'react';
-
+import  {Helmet}from 'react-helmet'
 function Blog(props) {
   return (
-    <div className=' px-10'>
+    <div className=' px-10'> <Helmet> <title> Minhaz  || Blog</title> </Helmet>
       <div className='Question'> 
       <span className=' text-green-500 text-3xl'> 1. Difference between SQL and NoSQL  </span> 
        <p className=' mt-5'><strong>SQL : </strong> RELATIONAL DATABASE MANAGEMENT SYSTEM (RDBMS) . These databases have fixed or static or predefined schema. These databases are not suited for hierarchical data storage.These databases are best suited for complex queries.Vertically Scalable <br /> <br /><strong> NoSQL : </strong>  Non-relational or distributed database system. They have dynamic schema. These databases are best suited for hierarchical data storage These databases are not so good for complex queries. 	Horizontally scalable</p>

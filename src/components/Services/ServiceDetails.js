@@ -4,7 +4,7 @@ import 'react-photo-view/dist/react-photo-view.css';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Reviews from '../Reviews/Reviews';
-import PrivateRoute from '../../private/PrivateRoute';
+import  {Helmet}from 'react-helmet'
 
 
 function ServiceDetails(props) {
@@ -23,7 +23,7 @@ function ServiceDetails(props) {
   },[])
 
   return (
-    <div className=' px-10 '> 
+    <div className=' px-10 '> <Helmet> <title> Minhaz  || Service</title> </Helmet>
     { service? service.map(item=>{
       return ( 
         <div key={item._id} className="grid grid-cols-1 md:grid-cols-2 ">

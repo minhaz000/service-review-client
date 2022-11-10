@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react';
 import { RootContext } from '../../context/RootContext';
+import  {Helmet}from 'react-helmet'
 
 function UserReview(props) {
   const {user} = useContext(RootContext)
@@ -9,13 +10,17 @@ function UserReview(props) {
 
   useEffect(()=>{ 
    const  url = `https://server-assignment-11.vercel.app/my-reviews?email=${user.email}`
-   axios.get(url).then(res=>{ 
+   axios.get(url,{
+    headers: {
+      authorization: `Bearer ${localStorage.getItem('access-token')}`
+  }
+   }).then(res=>{ 
     setMyReviews(res.data)
     console.log(res)
    }) 
   },[])
   return (
-    <div className=' my-16 px-10'>
+    <div className=' my-16 px-10'> <Helmet> <title> Minhaz  || Reviews</title> </Helmet>
       <div className="overflow-x-auto">
   <table className="table w-full">
     {/* <!-- head --> */}

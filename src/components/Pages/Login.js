@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { RootContext } from '../../context/RootContext';
+import  {Helmet}from 'react-helmet'
 
 function Login(props) {
   const [userInfo,setUserInfo] =  useState({email:"",password:""})
@@ -18,6 +19,31 @@ function Login(props) {
   const HandleEmailLongIN = (e)=>{
     e.preventDefault()
     EmailLogIn(userInfo.email,userInfo.password).then(res=>{
+      const user = res.user;
+
+
+      const currentUser = {
+          email: user.email
+      }
+
+      console.log(currentUser);
+
+      // get jwt token
+      fetch('https://server-assignment-11.vercel.app/jwt', {
+          method: 'POST',
+          headers: {
+              'content-type': 'application/json'
+          },
+          body: JSON.stringify(currentUser)
+      })
+          .then(res => res.json())
+          .then(data => {
+              console.log(data);
+            
+              localStorage.setItem('access-token', data.token);
+            
+          });
+
       toast.success("Login successful !!!"); 
       navigate(from,{replace :true})
     }).catch(error=>{ toast.error(error.code)})
@@ -26,11 +52,37 @@ function Login(props) {
   const HandleGoogle = (e)=>{
     e.preventDefault()
     googleLogIn().then(res=>{ 
+
+      const user = res.user;
+
+
+      const currentUser = {
+          email: user.email
+      }
+
+      console.log(currentUser);
+
+      // get jwt token
+      fetch('https://server-assignment-11.vercel.app/jwt', {
+          method: 'POST',
+          headers: {
+              'content-type': 'application/json'
+          },
+          body: JSON.stringify(currentUser)
+      })
+          .then(res => res.json())
+          .then(data => {
+              console.log(data);
+              
+              localStorage.setItem('access-token', data.token);
+              
+          });
+
       toast.success("Login successful !!!");
       navigate(from, {replace:true})
     }).catch(err=> toast.error( err.code))
   }
-  return (<> { console.log( userInfo)}
+  return (<> <Helmet> <title> Minhaz  || Login</title> </Helmet>
   <h1 className='text-center text-5xl my-2'> LogIn</h1>
     <div className=' grid grid-cols-2 '>
       <div> <img src="/img/Mention.gif" alt="" /></div>
