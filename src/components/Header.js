@@ -1,9 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
+import { RootContext } from '../context/RootContext';
 
 function Header(props) {
-  return (
-    <div>
+  const {user,LogOut} = useContext(RootContext)
+
+  const HandleLogOut = (e)=>{
+    e.preventDefault();
+    LogOut().then( res=>{ 
+      toast.success( " LogOut successful !!!")
+    }).catch(err=> toast.error(err.code))
+
+  }
+  return ( 
+    <div> {console.log(user)}
     
     <div className="navbar bg-base-100 px-10">
   <div className="navbar-start">
@@ -32,8 +43,13 @@ function Header(props) {
       
     </ul>
   </div>
-  <div className="navbar-end">
+  <div className="navbar-end"> { user? user.displayName :""}
+  {
+    user? <button onClick={HandleLogOut} className="btn btn-error text-white">Log OUT</button> : 
     <Link to='/login' className="btn btn-success text-white">Log In</Link>
+  }
+    
+    
   </div>
 </div>
     </div>

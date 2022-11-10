@@ -11,6 +11,7 @@ import AddServices from './components/Services/AddServices';
 import AddReview from './components/Reviews/AddReview';
 import AllServices from './components/Services/AllServices';
 import ServiceDetails from './components/Services/ServiceDetails';
+import PrivateRoute from './private/PrivateRoute';
 function App(props) {
       const {user} = useContext(RootContext)
 
@@ -41,7 +42,7 @@ function App(props) {
                 },
                 {
                   path:"/add-services",
-                  element:<AddServices></AddServices>
+                  element: <PrivateRoute> <AddServices></AddServices></PrivateRoute>
                 },
                  {
                   path:"/login",
