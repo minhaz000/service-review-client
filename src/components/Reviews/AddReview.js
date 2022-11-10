@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { useState } from 'react';
 import {toast} from 'react-hot-toast'
 import { RootContext } from '../../context/RootContext';
@@ -10,19 +10,21 @@ function AddReview(props) {
   const location = useLocation()
   const from = location.state?.from?.pathname || '/services'
   const {user,setReLoad} = useContext(RootContext)
+  const [serviceDetalis,setServiceDetalis] = useState([])
   const [newReview,setNewReview] = useState({
     userName:"", 
     message:"",
     photo:"",
     email:"",
-    serveiceId:params.ID
+    serveiceId:params.ID,
+    
    })
 
    const HandeleOnChange= (event)=>{
     event.preventDefault();
       const name = event.target.name
       const value = event.target.value
-      setNewReview({...newReview, [name]:value ,photo:user.photoURL,email:user.email ,userName:user.displayName})
+      setNewReview({...newReview, [name]:value ,photo:user.photoURL,email:user.email ,userName:user.displayName , serveice:serviceDetalis[0] })
     }
 
     const handleSubmit =(e)=>{
@@ -37,6 +39,14 @@ function AddReview(props) {
          
        }).catch(error => toast.error(error.code))
        } 
+
+ useEffect(()=>{ 
+  const url = `http://localhost:5000/services?q=${params.ID}`
+    axios.get(url).then(res=>{ 
+      setServiceDetalis(res.data)
+    })
+ 
+ },[])      
   return (
     <div> { console.log(newReview)}
       <h1 className='text-center text-5xl my-2 mt-10'> Add Review  </h1>

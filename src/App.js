@@ -12,6 +12,7 @@ import AddReview from './components/Reviews/AddReview';
 import AllServices from './components/Services/AllServices';
 import ServiceDetails from './components/Services/ServiceDetails';
 import PrivateRoute from './private/PrivateRoute';
+import UserReview from './components/Reviews/UserReview';
 function App(props) {
    
 
@@ -28,10 +29,13 @@ function App(props) {
                   path:"/blog",
                   element:<Blog></Blog> 
                 },
-                
                  {
                   path:"/add-review/:ID",
                   element: <PrivateRoute>  <AddReview></AddReview></PrivateRoute>
+                },
+                {
+                  path:"/my-reviews",
+                  element:<PrivateRoute> <UserReview></UserReview> </PrivateRoute>
                 },
                 {
                   path:"/services",

@@ -19,7 +19,7 @@ function Header(props) {
   return ( 
     <div> {console.log(user)}
     
-    <div className="navbar bg-base-100 px-10">
+    <div className="navbar bg-base-100 px-10 py-5">
   <div className="navbar-start">
     <div className="dropdown">
       <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -42,6 +42,8 @@ function Header(props) {
       <li> <Link to='/'> Home</Link> </li>
       <li> <Link to='/blog'> Blog</Link> </li>
       <li> <Link to='/add-services'>Add Service</Link> </li>
+     { user ? <li> <Link to='/my-reviews'>My Reviews</Link> </li>:"" } 
+     
      
       
     </ul>
