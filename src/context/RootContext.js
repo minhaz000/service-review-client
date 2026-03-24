@@ -37,6 +37,8 @@ useEffect(()=>{
   return ()=>  unSubscribe()
 },[])
 
+
+
   const  RootContextValue = { googleLogIn,LogOut,EmailLogIn,EmailSingnUp, user ,loading,reLoad,setReLoad}
   return (
   <RootContext.Provider value={RootContextValue}> 
